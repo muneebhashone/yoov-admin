@@ -21,5 +21,6 @@ export default {
 <style scoped>
 main {
   min-height: calc(100vh - 58px);
+  background-color: #e5e5e5;
 }
 </style>
