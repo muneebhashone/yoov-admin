@@ -1,28 +1,30 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Layout from "../components/Layout.vue";
 import Login from "../views/Login.vue";
-import About from "../views/About.vue";
+import Blogs from "../views/Blogs.vue";
+import BlogForm from "../views/BlogForm.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "",
-    component: Layout,
-    children: [
-      {
-        path: "/",
-        name: "Login",
-        component: Login,
-      },
-      {
-        path: "/about",
-        name: "About",
-        component: About,
-      },
-    ],
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/blogs",
+    name: "Blogs",
+    component: Blogs,
+  },
+  {
+    path: "/blog/form",
+    name: "BlogForm",
+    component: BlogForm,
+  },
+  {
+    path: "*",
+    redirect: { name: "Login" },
   },
 ];
 

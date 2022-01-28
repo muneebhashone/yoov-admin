@@ -1,10 +1,14 @@
 <template>
-  <header><img height="28px" :src="require('../assets/logo.svg')" /></header>
+  <header>
+    <Logo height="28px" />
+  </header>
 </template>
 
 <script>
+import Logo from "../assets/logo.svg";
 export default {
   name: "Header",
+  components: { Logo },
   data() {},
 };
 </script>
