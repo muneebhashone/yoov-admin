@@ -1,22 +1,29 @@
 <template>
-  <button :class="invert ? 'invert' : ''">
-    <component
-      v-show="leftIcon"
-      :is="leftIcon"
-      :class="invert ? 'invert' : ''"
-    />
+  <button @click="$emit('onClick')" :class="getClass()">
+    <component v-show="leftIcon" :is="leftIcon" :class="getClass()" />
     <span v-show="text">{{ text }}</span>
-    <component
-      v-show="rightIcon"
-      :is="rightIcon"
-      :class="invert ? 'invert' : ''"
-    />
+    <component v-show="rightIcon" :is="rightIcon" :class="getClass()" />
   </button>
 </template>
 
 <script>
 export default {
-  props: ["invert", "leftIcon", "rightIcon", "text"],
+  props: ["invert", "noBorder", "leftIcon", "rightIcon", "text"],
+  methods: {
+    getClass() {
+      let classes = [""];
+
+      if (this.$props.invert) {
+        classes.push("invert");
+      }
+
+      if (this.$props.noBorder) {
+        classes.push("no-border");
+      }
+
+      return classes.join(" ").trim();
+    },
+  },
 };
 </script>
 
@@ -30,7 +37,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+
+  &:hover {
+    opacity: 0.9;
+  }
 
   & span {
     font-weight: 500;
@@ -45,6 +56,11 @@ button {
     & path {
       fill: #2b425e;
     }
+  }
+
+  &.no-border {
+    border-width: 0px;
+    background: transparent;
   }
 }
 </style>

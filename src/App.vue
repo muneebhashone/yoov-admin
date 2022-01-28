@@ -13,6 +13,7 @@
 * {
   font-family: "Prompt", sans-serif;
 }
+
 .app-wrapper {
   display: flex;
   flex: 1;
