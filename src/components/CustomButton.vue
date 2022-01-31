@@ -33,7 +33,7 @@ button {
   background: #2b425e;
   border-radius: 4px;
   padding: 12px 20px;
-  border: 1px solid white;
+  border: 1px solid #2b425e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +50,7 @@ button {
 
   &.invert {
     color: #2b425e;
-    background: white;
+    background: transparent;
     border: 1px solid #2b425e;
 
     & path {

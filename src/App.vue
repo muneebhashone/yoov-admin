@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <Header />
-    <div :class="`${!isLogin ? 'app-wrapper' : ''}`">
-      <Sidebar v-show="!isLogin" />
-      <router-view />
-    </div>
-    <Footer />
+    <v-app>
+      <Header />
+      <div :class="`${!isLogin ? 'app-wrapper' : ''}`">
+        <Sidebar v-show="!isLogin" />
+        <router-view />
+      </div>
+      <Footer />
+    </v-app>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 * {
   font-family: "Prompt", sans-serif;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .app-wrapper {
