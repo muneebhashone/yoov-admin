@@ -1,8 +1,21 @@
 <template>
   <div class="data-table-blog-list">
+    <div class="table-details-row">
+      <p class="total-paragraph">{{ `Total ${items.length}` }}</p>
+      <v-pagination
+        v-model="page"
+        :total-visible="9"
+        :length="pageCount"
+      ></v-pagination>
+      <select v-model="itemsPerPage">
+        <option v-for="item of itemsPerPageOptions" :key="item" :value="item">
+          {{ `${item} / page` }}
+        </option>
+      </select>
+    </div>
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="items"
       :items-per-page="itemsPerPage"
       :page.sync="page"
       @page-count="pageCount = $event"
@@ -39,20 +52,19 @@
           </td>
         </tr> </template
     ></v-data-table>
-    <v-pagination
-      v-model="page"
-      :total-visible="9"
-      :length="pageCount"
-    ></v-pagination>
-
-    <v-text-field
-      :value="itemsPerPage"
-      label="Items per page"
-      type="number"
-      min="-1"
-      max="15"
-      @input="itemsPerPage = parseInt($event, 10)"
-    ></v-text-field>
+    <div class="table-details-row">
+      <p class="total-paragraph">{{ `Total ${items.length}` }}</p>
+      <v-pagination
+        v-model="page"
+        :total-visible="9"
+        :length="pageCount"
+      ></v-pagination>
+      <select v-model="itemsPerPage">
+        <option v-for="item of itemsPerPageOptions" :key="item" :value="item">
+          {{ `${item} / page` }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -64,8 +76,7 @@ export default {
     return {
       page: 1,
       pageCount: 0,
-      items: ["5 / page", "10 / page", "20 / page"],
-      itemsValue: [5, 10, 25],
+      itemsPerPageOptions: [5, 10, 25],
       itemsPerPage: 10,
       headers: [
         {
@@ -83,7 +94,7 @@ export default {
           value: "actions",
         },
       ],
-      desserts: Array(20)
+      items: Array(50)
         .fill({
           title: "Title",
           author: "Admin",
@@ -92,7 +103,7 @@ export default {
           "last-edited": "2021/12/04 20:30:33",
         })
         .map((item, index) => {
-          return { ...item, title: item.title + index };
+          return { ...item, title: `${item.title} ${index}` };
         }),
     };
   },
@@ -121,9 +132,48 @@ export default {
     width: 324px !important;
   }
 
+  & tbody > tr:last-child td {
+    border-bottom: thin solid rgba(0, 0, 0, 0.12);
+  }
+
   & thead > tr th span {
     color: #272e3b;
   }
+
+  & select {
+    border: 1px solid #c9cdd4;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+    font-family: Prompt;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #272e3b;
+  }
+}
+
+.table-details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+
+  & nav {
+    margin-left: auto;
+    margin-right: 25px;
+  }
+}
+
+.total-paragraph {
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #272e3b;
 }
 
 button.v-pagination__item.v-pagination__item--active.primary {
@@ -144,8 +194,8 @@ button.v-pagination__navigation.v-pagination__navigation {
 
 .v-pagination__more {
   letter-spacing: 7px;
-  align-items: center;
-  margin: 0.5rem;
+  align-items: center !important;
+  margin: 0.5rem !important;
   top: -3px;
   position: relative;
 }
