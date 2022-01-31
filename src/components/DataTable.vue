@@ -44,6 +44,7 @@
       :total-visible="9"
       :length="pageCount"
     ></v-pagination>
+
     <v-text-field
       :value="itemsPerPage"
       label="Items per page"
@@ -63,6 +64,8 @@ export default {
     return {
       page: 1,
       pageCount: 0,
+      items: ["5 / page", "10 / page", "20 / page"],
+      itemsValue: [5, 10, 25],
       itemsPerPage: 10,
       headers: [
         {
