@@ -7,24 +7,24 @@ import BlogForm from "../views/BlogForm.vue";
 Vue.use(VueRouter);
 
 const routes = [
+  // {
+  //   path: "/",
+  //   name: "Login",
+  //   component: Login,
+  // },
   {
     path: "/",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/blogs",
     name: "Blogs",
     component: Blogs,
   },
   {
-    path: "/blog/form",
+    path: "/form",
     name: "BlogForm",
     component: BlogForm,
   },
   {
     path: "*",
-    redirect: { name: "Login" },
+    redirect: { name: "Blogs" },
   },
 ];
 

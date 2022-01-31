@@ -1,12 +1,14 @@
 <template>
   <div class="blogs">
     <div class="header">
-      <CustomButton
-        :leftIcon="backIcon"
-        text="Back"
-        :invert="true"
-        :noBorder="true"
-      />
+      <router-link :to="{ name: 'Blogs' }">
+        <CustomButton
+          :leftIcon="backIcon"
+          text="Back"
+          :invert="true"
+          :noBorder="true"
+        />
+      </router-link>
       <div class="d-flex">
         <CustomButton text="Preview" :invert="true" :noBorder="true" />
         <CustomButton text="Save as draft" class="mr-3" :invert="true" />

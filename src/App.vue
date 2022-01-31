@@ -20,6 +20,10 @@
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 .app-wrapper {
   display: flex;
   flex: 1;

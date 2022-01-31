@@ -2,7 +2,9 @@
   <div class="blogs">
     <div class="header">
       <h1>Blog posts</h1>
-      <CustomButton :leftIcon="UnionIcon" text="Add new" />
+      <router-link :to="{ name: 'BlogForm' }">
+        <CustomButton :leftIcon="UnionIcon" text="Add new" />
+      </router-link>
     </div>
     <Wrapper>
       <DataTable />

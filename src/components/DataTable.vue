@@ -177,9 +177,9 @@ export default {
 }
 
 button.v-pagination__item.v-pagination__item--active.primary {
-  background: #e8fffd;
+  background: #e8fffd !important;
   border-radius: 4px;
-  color: #217d8d;
+  color: #217d8d !important;
 }
 
 button.v-pagination__item {
