@@ -2,12 +2,14 @@
   <div class="blogs">
     <div class="header">
       <router-link :to="{ name: 'Blogs' }">
-        <CustomButton
-          :leftIcon="backIcon"
-          text="Back"
-          :invert="true"
-          :noBorder="true"
-        />
+        <router-link to="/">
+          <CustomButton
+            :leftIcon="backIcon"
+            text="Back"
+            :invert="true"
+            :noBorder="true"
+          />
+        </router-link>
       </router-link>
       <div class="d-flex">
         <CustomButton text="Preview" :invert="true" :noBorder="true" />
@@ -17,7 +19,7 @@
     </div>
     <v-row>
       <v-col md="9" class="d-flex">
-        <Wrapper class="flex-grow-1">
+        <Wrapper ref="editor-ref" class="flex-grow-1">
           <CustomTabs />
         </Wrapper>
       </v-col>
@@ -28,7 +30,7 @@
             <Uploader />
           </Wrapper>
           <Wrapper
-            ><h3>Prodcut</h3>
+            ><h3>Product</h3>
             <div class="mt-4">
               <select class="form-control" name="" id="">
                 <option value="">1</option>
@@ -98,7 +100,15 @@ export default {
     return {
       backIcon,
       model: null,
+      styleObject: {
+        height: "0px",
+      },
     };
+  },
+  mounted() {
+    this.styleObject.height = `${
+      this.$refs["editor-ref"].$el.getBoundingClientRect().height
+    }px`;
   },
 };
 </script>
@@ -108,6 +118,7 @@ export default {
   padding: 20px;
   background-color: #e5e5e5;
   flex: 1;
+  margin-top: 56px;
 
   & .header {
     display: flex;
@@ -115,14 +126,6 @@ export default {
   }
 }
 
-.form-control {
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #c9cdd4;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 10px;
-}
 input.form-control {
   height: 40px;
 }

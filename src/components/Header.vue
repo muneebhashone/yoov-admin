@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="fixed-top">
     <Logo height="28px" />
   </header>
 </template>
@@ -20,5 +20,12 @@ header {
   display: flex;
   align-items: center;
   padding-left: 30px;
+}
+
+.fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 </style>

@@ -1,5 +1,11 @@
 <template>
-  <div ref="editor"></div>
+  <div>
+    <div class="my-4">
+      <label for="title">Title</label>
+      <input type="text" id="title" class="form-control" />
+    </div>
+    <div ref="editor"></div>
+  </div>
 </template>
 
 <script>

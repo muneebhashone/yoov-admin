@@ -32,6 +32,27 @@ a {
 .v-tabs-slider {
   background-color: #2b425e !important;
 }
+.ql-container {
+  min-height: 100vh;
+}
+.v-tab.v-tab--active {
+  color: #2b425e !important;
+}
+
+.theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) {
+  color: #272e3b !important;
+}
+.form-control {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #c9cdd4;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px;
+}
+.v-slide-group__content {
+  border-bottom: 1px solid #c9cdd4;
+}
 </style>
 
 <script>

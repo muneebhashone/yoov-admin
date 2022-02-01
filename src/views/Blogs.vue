@@ -34,6 +34,7 @@ export default {
   padding: 20px;
   background-color: #e5e5e5;
   flex: 1;
+  margin-top: 56px;
 
   & .header {
     display: flex;
