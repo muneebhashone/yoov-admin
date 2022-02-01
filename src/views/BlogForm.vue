@@ -16,12 +16,12 @@
       </div>
     </div>
     <v-row>
-      <v-col lg="9" class="d-flex">
+      <v-col md="9" class="d-flex">
         <Wrapper class="flex-grow-1">
           <CustomTabs />
         </Wrapper>
       </v-col>
-      <v-col lg="3" class="d-flex">
+      <v-col md="3" class="d-flex">
         <div class="flex-grow-1">
           <Wrapper>
             <h3>Post thumbnail</h3>

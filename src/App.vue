@@ -28,6 +28,10 @@ a {
   display: flex;
   flex: 1;
 }
+
+.v-tabs-slider {
+  background-color: #2b425e !important;
+}
 </style>
 
 <script>
